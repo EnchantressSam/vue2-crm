@@ -5,9 +5,9 @@
         <h4>Редактировать</h4>
       </div>
 
-      <form>
+      <form @submit.prevent="submitHandler">
         <div class="input-field">
-          <select ref="select">
+          <select ref="select" v-model="current">
             <option v-for="c of categories" :key="c.id" :value="c.id">{{c.title}}</option>
           </select>
           <label>Выберите категорию</label>
@@ -50,6 +50,7 @@
   </div>
 </template>
 <script>
+import { required, minValue } from "vuelidate/lib/validators";
 export default {
   props: {
     categories: {
@@ -58,10 +59,50 @@ export default {
     }
   },
   data: () => ({
-    select: null
+    select: null,
+    title: "",
+    limit: 100,
+    current: null
   }),
+  validations: {
+    title: { required },
+    limit: { minValue: minValue(100) }
+  },
+  watch: {
+    current(catId) {
+      const { title, limit } = this.categories.find(c => c.id === catId);
+      this.title = title;
+      this.limit = limit;
+    }
+  },
+  created() {
+    const { id, title, limit } = this.categories[0];
+    this.current = id;
+    this.title = title;
+    this.limit = limit;
+  },
+  methods: {
+    async submitHandler() {
+      if (this.$v.$invalid) {
+        this.$v.$touch();
+        return;
+      }
+      try {
+        const categoryData = {
+          id: this.current,
+          title: this.title,
+          limit: this.limit
+        };
+        await this.$store.dispatch("updateCategory", categoryData);
+        this.$message("Категория успешно обновлена");
+        this.$emit("updated", categoryData);
+        //eslint-disable-next-line
+      } catch (e) {}
+    }
+  },
   mounted() {
     this.select = window.M.FormSelect.init(this.$refs.select);
+    window.M.updateTextFields();
   },
   destroyed() {
     if (this.select && this.select.destroy()) {
