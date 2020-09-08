@@ -1,3 +1,4 @@
+/*eslint-disable*/
 export default {
   install(Vue, options) {
     (Vue.prototype.$message = function(html) {
