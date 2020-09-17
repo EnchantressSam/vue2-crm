@@ -6,7 +6,7 @@ export default {
     }),
       (Vue.prototype.$error = function(html) {
         M.toast({
-          html: `[Ошибка]: ${html}`,
+          html: `[${localizeFilter("Error")}]: ${html}`,
         });
       });
   },
