@@ -57,6 +57,11 @@ import { email, required, minLength } from "vuelidate/lib/validators";
 import messages from "@/utils/messages";
 export default {
   name: "login",
+  metaInfo() {
+    return {
+      title: this.$title("Login")
+    };
+  },
   data: () => ({
     email: "",
     password: ""

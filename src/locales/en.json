@@ -4,6 +4,7 @@
   "Update": "Update",
   "Name": "Name",
   "Menu_Bill": "Bill",
+  "Menu_Detail": "Detail",
   "Menu_History": "History",
   "Menu_Planning": "Planning",
   "Menu_NewRecord": "NewRecord",
@@ -60,5 +61,8 @@
   "FirstLogin": "First login",
   "NoUserWithEmail": "No user with email",
   "WrongPassword": "Invalid password",
-  "EmailInUse": "Email is already in use"
+  "EmailInUse": "Email is already in use",
+  "RecordHasBeenCreated": "Record has been created",
+  "NotEnoughMoney": "Not enough money",
+  "Exit": "Exit"
 }

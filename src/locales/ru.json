@@ -4,6 +4,7 @@
   "Update": "Обновить",
   "Name": "Имя",
   "Menu_Bill": "Счет",
+  "Menu_Detail": "Запись",
   "Menu_History": "История",
   "Menu_Planning": "Планирование",
   "Menu_NewRecord": "Новая запись",
@@ -61,7 +62,8 @@
   "FirstLogin": "Для начала войдите в систему",
   "NoUserWithEmail": "Пользователь с таким email не найден",
   "WrongPassword": "Неверный пароль",
-  "EmailInUse": "Email уже занят"
+  "EmailInUse": "Email уже занят",
+  "RecordHasBeenCreated": "Запись успешно создана",
+  "NotEnoughMoney": "Недостаточно средств на счете",
+  "Exit": "Выйти"
 }
-/*"RecordHasBeenCreated": "Запись успешно создана",
-  "NotEnoughMoney": "Недостаточно средств на счете",*/
